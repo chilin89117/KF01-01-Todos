@@ -3,4 +3,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('todos', 'TodoController');
+Route::resource('todos', 'TodoController')->except(['create', 'show']);

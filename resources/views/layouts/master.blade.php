@@ -3,9 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>{{config('app.name')}}</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-          crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <style media="screen">
       body {
         margin-top: 20px;
@@ -15,9 +13,9 @@
   <body>
     <div class="container">
       @include('inc.msg')
-
       @yield('content')
-
     </div>
+    <script src="{{asset('js/jquery.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
   </body>
 </html>

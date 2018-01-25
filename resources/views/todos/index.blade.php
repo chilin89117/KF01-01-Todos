@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-  <h2>Create a Todo</h2>
+  <h2>{{config('app.name')}}</h2>
   <hr>
   <div class="container">
     <div class="row">
@@ -17,9 +17,7 @@
       </div>
     </div>
   </div>
-
   <br><br>
-
   <h2>Current Todos</h2>
   <hr>
   @If(count($todos)>0)
@@ -35,9 +33,7 @@
       <td>{{$todo->todo}}</td>
       <td>
         @if(!$todo->completed)
-
-        <!-- Use a form with hidden inputs to update 'completed' column -->
-        <form action="{{route('todos.update', ['todo'=>$todo])}}" method="post">
+        <form action="{{route('todos.update', $todo)}}" method="post">
           {{csrf_field()}}
           {{method_field('put')}}
           <input type="hidden" name="todo" value="{{$todo->todo}}">
@@ -48,10 +44,10 @@
         Completed!
         @endif
       </td>
-      <td><a href="{{route('todos.edit', ['todo'=>$todo])}}"
+      <td><a href="{{route('todos.edit', $todo)}}"
              class="btn btn-success btn-xs">Edit</a></td>
       <td>
-        <form action="{{route('todos.destroy', ['todo'=>$todo])}}" method="post">
+        <form action="{{route('todos.destroy', $todo)}}" method="post">
           {{csrf_field()}}
           {{method_field('delete')}}
           <button type="submit" name="submit" class="btn btn-danger btn-xs">Delete</button>
