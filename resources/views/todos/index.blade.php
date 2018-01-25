@@ -47,7 +47,7 @@
       <td><a href="{{route('todos.edit', $todo)}}"
              class="btn btn-success btn-xs">Edit</a></td>
       <td>
-        <form action="{{route('todos.destroy', $todo)}}" method="post">
+        <form action="{{route('todos.destroy', $todo)}}" method="post" onSubmit="return confirm('Are you sure?');">
           {{csrf_field()}}
           {{method_field('delete')}}
           <button type="submit" name="submit" class="btn btn-danger btn-xs">Delete</button>
